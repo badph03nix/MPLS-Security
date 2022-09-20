@@ -1,0 +1,41 @@
+1) Separate Control Plane and Data Plane
+The control plane provides information that the data plane needs to forward data from one network node to another. It is used for routing decisions, monitoring network-related statistics, and setting up protocols like Routing Information Protocols (RIP). The two planes are typically separated for added security.  
+With this separation, if a malicious actor takes over a device on the control plane, it will not be able to modify or intercept traffic on the data plane. You can create separate networks with firewalls between them or employ routing protocols like OSPF or BGP, which have authentication mechanisms in place to limit access to each protocol level. 
+
+2) Employ a Defense-in-Depth Strategy
+Defense-in-depth employs multiple layers of security measures or defensive strategies. This would entail deploying packet filtering, firewalls, and intrusion detection systems in a layered fashion in MPLS networks. For example, patrol the network perimeter with an IDS system. 
+To further protect internal resources, use an inline IPS for deep inspection of traffic entering the intranet, and implement application-level gateway devices for review and protection. In addition, implement a firewall policy that blocks access to all unnecessary ports at the perimeter and only allows established connections through specific ports where needed. 
+
+3) Use ACL to allow only necessary hosts/routers into the MPLS domain
+When the MPLS network is set up, it should be made as secure as possible by placing (ACLs) at the edge of the MPLS domain that allow only trusted devices access to the MPLS domain.
+These ACLs are used with ping and traceroute commands, which can be run periodically against hosts inside and outside the MPLS domain to determine if traffic flows properly through all points on a given network.
+
+4) Deploy firewalls at all nodes to filter out unauthorized packets 
+Firewalls can control where and what traffic is allowed in or out of the MPLS network. Inbound firewalls protect the MPLS network from malicious software (e.g., viruses, malware) on an incoming computer. In contrast, outbound firewalls help guard against hacker attacks by filtering out unauthorized packets from exiting the MPLS network. 
+To reduce vulnerability to a denial-of-service attack, deploy multiple firewalls at all nodes. Use these best practices: 
+* Packet filtering: Packet filtering allows a firewall administrator to configure which type of packet should be blocked or forwarded. 
+* Authentication: This option requires users who want access to the MPLS network to provide means of identification before being granted access through a firewall. 
+* Captive portals: These gateways require users to connect to the MPLS network to authenticate themselves with a username and password. 
+
+5) Use ingress and egress filtering
+Establish security zones on every ingress/egress point: Establish security zones on every ingress/egress point to maintain separation between networks and set rules accordingly.
+With ingress filtering in place, the connection will be allowed if it originates from a trusted network; in the case of egress filtering, the connection will be allowed if it is destined for a trusted network. 
+In both cases, the firewall will drop an attempt to reach a source or destination host on an untrusted network. Filtering out all packets with invalid headers, such as packets that do not conform to IP protocol standards, can also prevent attacks. Allowing access to certain protocols can also help keep the enterprise networks safe. Interfaces should be monitored continuously. Network admins should monitor the ingress and egress ports of routers connected to external links for unexpected spikes in traffic volume.
+
+6) Implement bandwidth limits on each link with appropriate policing and shaping policies 
+Bandwidth limits are often one of the first tools used to control traffic on a network, but they are not always configured correctly. Incorrect bandwidth limiting is ineffective because it leaves gaps where congestion could occur and can lead to oversubscription. Therefore, bandwidth limits must be applied at each Layer 2 link with appropriate policing and shaping policies such as Token Bucket in MPLS QoS for the multiservice networks. 
+
+7) Enable encryption between PE and CE routers
+One of the best ways to protect MPLS networks is by using an end-to-end VPN tunnel between the provider edge (PE) routers and customer edge (CE) routers. It is important to utilize the benefits of encryption when connecting the PE router to CE routers, especially when there are multiple router hops. 
+When a packet traverses from one router to another, there is a possibility for eavesdropping, data tampering, or message insertion attacks. To combat these attacks, you can use IPsec as a security measure. With IPsec enabled on both routers, it will encrypt and decrypt traffic between the two devices and offer an extra layer of protection against those aforementioned attacks.
+
+8) Encrypt everything where possible
+MPLS encryption is accomplished through a combination of Digital Encryption Standard (DES) and 3DES or Advanced Encryption Standard (AES) encryption. In addition, IPSec, Layer 2 Tunneling Protocol (L2TP), and Secure Socket Layer/Transport Layer Security (SSL/TLS) are common methods for encrypting VPN traffic over MPLS networks. All these protocols can be deployed independently or in conjunction with one another. 
+Some enterprises use combinations of the different protocols on their MPLS networks because they can interoperate with other security measures they have deployed elsewhere in their network infrastructure. MPLS VPNs may also provide data confidentiality using transport mode IPsec ESP encryption. Data integrity can be maintained using an ESP integrity algorithm such as HMAC-MD5, HMAC-SHA1, or HMAC-SHA256.
+
+9) Implement a robust IDPS solution for enterprise MPLS network
+The intrusion detection and prevention systems (IDPS) provide real-time protection against attacks. Attackers will try to overwhelm the network by sending packets that are not permitted. IDPS can handle these packets by being programmed for specific levels of load or attack types. The IDPS analyzes all packets entering and exiting the enterprise network and blocks those deemed malicious. 
+
+10) Deploy anomaly-based detection
+Enterprise MPLS network security is achieved through a proactive rather than reactive approach. Anomaly-based detection detects abnormal activity in traffic patterns on the MPLS backbone. It monitors every packet flow on the network, thus providing full coverage and a low false positive rate. 
+Anomaly-based detection also aids in identifying stealthy attacks, such as new ones created by hackers, who find vulnerabilities and exploit them without triggering any alarms. Identify stealthy attacks by analysing changes in behaviour over time using statistical data. Using anomaly-based detection, enterprises can pinpoint the exact point when attackers entered their network, and take appropriate measures immediately.
